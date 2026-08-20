@@ -1,9 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+@font-face {
+    font-family: 'silver-neuebit';
+    src: url('/public/fonts/silver-neuebit-v01.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NeueBit-Bold';
+    src: url('/public/fonts/NeueBit-Bold.ttf') format('truetype');
+}
+
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-Fredoka: 'Fredoka', sans-serif;
+    --font-silver-neuebit: 'silver-neuebit', sans-serif;
+    --font-neueBit-bold: 'NeueBit-Bold', sans-serif;
+    --color-background: #ff8c38;
+    --color-primary: #1a1030;
+    --color-panel: #efeaf8;
+    --color-panel-alt: #e4dcf5;
+    --shadow-chunky: 4px 4px 0 #1a1030;
+    --shadow-chunky-sm: 3px 3px 0 #1a1030;
+    --border-chunky: 3px solid #1a1030;
+}
+
+.btn-chunky {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 6px 20px;
+    font-family: inherit;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    background: var(--color-panel);
+    border: var(--border-chunky);
+    box-shadow: var(--shadow-chunky);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-chunky:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--color-primary);
+}
+
+.btn-chunky:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-primary);
+}
+
+.btn-chunky-alt {
+    background: var(--color-panel-alt);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0.85;
+}
+
+.btn-text:hover {
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-chunky.is-disabled,
+.btn-text.is-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
 }
